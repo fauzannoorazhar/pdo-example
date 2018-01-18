@@ -179,3 +179,38 @@ $films = $result->fetchAll(PDO::FETCH_ASSOC);
 
 	</body>
 </html>
+
+<?php //The Array
+$arr=array(array(
+    'month'     => "January",
+    'month2'    => 'Feb',
+    'tests'     => "Test A, Test B",
+    'values'    => "VAL A, VAL B"
+));
+?>
+
+<table>
+<thead>
+<tr>
+    <th>Month</th>
+    <th>Tests</th>
+    <th>Values</th>
+    <th>Month</th>
+</tr>
+</thead>
+<tbody>
+    <?php foreach($arr as $item): ?>
+        <tr>
+            <td rowspan="2">lrem</td>
+            <td>A</td>
+            <td>B</td>
+            <td rowspan="2">asda</td>
+        </tr>
+        <tr>
+            <td>LOREM</td>
+            <td>LOREM</td>
+        </tr>
+    <?php endforeach; ?>
+
+</tbody>
+</table>

@@ -3,11 +3,13 @@
 require_once 'database.php';
 
 if (!empty($_GET['id'])) {
-	$film_id = $_GET['id'];
+	$film_id = intval($_GET['id']);
 }
 
 try {
-	$result = $db->query('select * from film where film_id = '.$film_id);
+	$result = $db->prepare('select * from film where film_id = ?');
+	$result->bindParam(1, $film_id);
+	$result->execute();
 } catch (Exception $e) {
 	echo $e->getMessage();
 	die();
